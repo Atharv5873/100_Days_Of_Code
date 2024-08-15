@@ -2,7 +2,7 @@ import random
 from art import logo, vs
 from game_data import data
 import os
-key2 = random.randint(1, len(data))
+key2 = random.randint(0, len(data))
 score=0
 first_time=True
 while True:
@@ -13,9 +13,9 @@ while True:
     else:
         first_time=False
     key1 = key2
-    key2 = random.randint(1, len(data))
+    key2 = random.randint(0, len(data))
     while key2 == key1:
-        key2 = random.randint(1, len(data))
+        key2 = random.randint(0, len(data))
 
     a=f"{data[key1]['name']}, a {data[key1]['description']}, from {data[key1]['country']}"
     b=f"{data[key2]['name']}, a {data[key2]['description']}, from {data[key2]['country']}"
