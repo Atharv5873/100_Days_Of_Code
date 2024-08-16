@@ -45,6 +45,21 @@ def check_resources(choice):
             return False
         return True
 
+def process_coins():
+    print("Please Insert Coins.")
+    quarters = int(input("How many quarters?: ")) * 0.25
+    dimes = int(input("How many dimes?: ")) * 0.10
+    nickles = int(input("How many nickles?: ")) * 0.05
+    pennis = int(input("How many dimes?: ")) * 0.1
+    total = quarters + dimes + nickles + pennis
+    return total
+
 choice=input("What would you like? (espresso/latte/cappuccino): ").lower()
-f=check_resources(choice)
-print(f)
+if choice =="off":
+    print("Turning Off")
+    exit()
+if choice =="report":
+    report()
+
+#f=check_resources(choice)
+#print(f)
