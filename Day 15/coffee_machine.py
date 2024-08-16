@@ -46,13 +46,19 @@ def check_resources(choice):
             return False
         return True
 
-def process_coins():
+def process_coins(choice):
+    bill=MENU[choice]["cost"]
+    print(f"Your Total Bill is: {bill}")
     print("Please Insert Coins.")
-    quarters = int(input("How many quarters?: ")) * 0.25
-    dimes = int(input("How many dimes?: ")) * 0.10
-    nickles = int(input("How many nickles?: ")) * 0.05
-    pennis = int(input("How many dimes?: ")) * 0.1
-    total = quarters + dimes + nickles + pennis
+    total=0
+    total += int(input("How many quarters?: ")) * 0.25
+    print(f"Your Have Given: {total}")
+    total += int(input("How many dimes?: ")) * 0.10
+    print(f"Your Have Given: {total}")
+    total += int(input("How many nickles?: ")) * 0.05
+    print(f"Your Have Given: {total}")
+    total += int(input("How many dimes?: ")) * 0.1
+    print(f"Your Have Given: {total}")
     return total
 
 def check_transaction (choice,total):
@@ -60,7 +66,7 @@ def check_transaction (choice,total):
     if total>=int(MENU[choice]["cost"]):
         change=total-int(MENU[choice]["cost"])
         money += int(MENU[choice]["cost"])
-        print(f"Here is ${round(change,2)} in change.")
+        print(f"Here is ${round(change,3)} in change.")
         return True
     else:
         print("Sorry that's not enough money. Money refunded.")
@@ -75,7 +81,7 @@ while True:
         report()
     if choice == "espresso" or choice == "latte" or choice == "cappuccino":
         if check_resources(choice):
-            total=process_coins()
+            total=process_coins(choice)
             if check_transaction(choice,total):
                 ingredients=MENU[choice]["ingredients"]
                 for i in ingredients:
