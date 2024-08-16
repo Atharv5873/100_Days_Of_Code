@@ -37,5 +37,14 @@ def report():
     print(f"Coffee: {resources['coffee']}g")
     print(f"Money: ${money}")
 
-print(report())
-#choice=input("What would you like? (espresso/latte/cappuccino): ").lower()
+def check_resources(choice):
+    ingredients=MENU[choice]["ingredients"]
+    for i in ingredients:
+        if ingredients[i]>resources[i]:
+            print(f"Sorry there is not enough {i}.")
+            return False
+        return True
+
+choice=input("What would you like? (espresso/latte/cappuccino): ").lower()
+f=check_resources(choice)
+print(f)
