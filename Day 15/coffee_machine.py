@@ -87,3 +87,5 @@ while True:
                 for i in ingredients:
                     resources[i]-=ingredients[i]
                 print(f"Here is your {choice} ☕☕. Enjoy!")
+    else:
+        print("Invalid choice. Please choose a valid option.")
