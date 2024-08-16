@@ -24,7 +24,8 @@ MENU = {
         "cost": 3.0,
     }
 }
-money=0
+global money
+money = 0
 resources = {
     "water": 300,
     "milk": 200,
@@ -54,12 +55,29 @@ def process_coins():
     total = quarters + dimes + nickles + pennis
     return total
 
-choice=input("What would you like? (espresso/latte/cappuccino): ").lower()
-if choice =="off":
-    print("Turning Off")
-    exit()
-if choice =="report":
-    report()
+def check_transaction (choice,total):
+    global money
+    if total>=int(MENU[choice]["cost"]):
+        change=total-int(MENU[choice]["cost"])
+        money += int(MENU[choice]["cost"])
+        print(f"Here is ${round(change,2)} in change.")
+        return True
+    else:
+        print("Sorry that's not enough money. Money refunded.")
+        return False
 
-#f=check_resources(choice)
-#print(f)
+while True:
+    choice=input("What would you like? (espresso/latte/cappuccino): ").lower()
+    if choice =="off":
+        print("Turning Off")
+        exit()
+    if choice =="report":
+        report()
+    if choice == "espresso" or choice == "latte" or choice == "cappuccino":
+        if check_resources(choice):
+            total=process_coins()
+            if check_transaction(choice,total):
+                ingredients=MENU[choice]["ingredients"]
+                for i in ingredients:
+                    resources[i]-=ingredients[i]
+                print(f"Here is your {choice} ☕☕. Enjoy!")
