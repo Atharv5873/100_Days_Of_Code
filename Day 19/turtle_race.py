@@ -42,6 +42,7 @@ while is_race_on:
                 print(f"You Have Won! The {winner} turtle is the winner")
             else:
                 print(f"You Have Lost! The {winner} turtle is the winner")
+            break;
         rand_dist=random.randint(0,10)
         t.forward(rand_dist)
     
