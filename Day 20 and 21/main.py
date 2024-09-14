@@ -25,7 +25,7 @@ screen.update()
 game_is_on=True
 while game_is_on:
     screen.update()
-    time.sleep(0.1)
+    time.sleep(0.05)
     snake.move()
 
     if snake.head.distance(food) <15:
@@ -37,7 +37,12 @@ while game_is_on:
         scoreboard.game_over()
         game_is_on=False
     
-    
+    for segment in snake.segments:
+        if segment==snake.head:
+            pass
+        elif snake.head.distance(segment)<10:
+            scoreboard.game_over()
+            game_is_on=False
      
 
 
