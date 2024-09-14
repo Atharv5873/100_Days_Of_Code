@@ -25,7 +25,7 @@ screen.update()
 game_is_on=True
 while game_is_on:
     screen.update()
-    time.sleep(0.05)
+    time.sleep(0.04)
     snake.move()
 
     if snake.head.distance(food) <15:
