@@ -12,8 +12,10 @@ class Scoreboard(Turtle):
 
     def update_score(self):
         self.goto(-100,200)
+        self.color("green")
         self.write(self.l_score,align='center',font=("Courier",60,"normal"))
         self.goto(100,200)
+        self.color("red")
         self.write(self.r_score,align='center',font=("Courier",60,"normal"))
         
     def l_point(self):
@@ -28,9 +30,12 @@ class Scoreboard(Turtle):
 
     def game_over(self):
         self.goto(0,0)
-        self.write("GAME OVER", align='center', font=("Courier", 60, "normal"))
+        self.color("white")
+        self.write("GAME OVER", align='center', font=("Courier", 50, "normal"))
         self.goto(0,-50)
         if self.l_score>self.r_score:
+            self.color("green")
             self.write("Left Player Wins", align='center', font=("Courier", 30, "normal"))
         else:
+            self.color("red")
             self.write("Right Player Wins", align='center', font=("Courier", 30, "normal"))
