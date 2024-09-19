@@ -39,6 +39,11 @@ while game_is_on:
         ball.reset()
         scoreboard.r_point()
 
+    if scoreboard.l_score==7 or scoreboard.r_score==7:
+        game_is_on=False
+        scoreboard.game_over()
+
+
 
 
 

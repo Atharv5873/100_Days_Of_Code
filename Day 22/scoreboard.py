@@ -25,3 +25,12 @@ class Scoreboard(Turtle):
         self.r_score+=1
         self.clear()
         self.update_score()
+
+    def game_over(self):
+        self.goto(0,0)
+        self.write("GAME OVER", align='center', font=("Courier", 60, "normal"))
+        self.goto(0,-50)
+        if self.l_score>self.r_score:
+            self.write("Left Player Wins", align='center', font=("Courier", 30, "normal"))
+        else:
+            self.write("Right Player Wins", align='center', font=("Courier", 30, "normal"))
